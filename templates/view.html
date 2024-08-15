@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Snippet</title>
+</head>
+<body>
+    {% if requires_decryption %}
+        <h1>Enter Secret Key to View Snippet</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.secret_key.label }}<br>
+                {{ form.secret_key(size=44) }}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </form>
+    {% else %}
+        <h1>Snippet Content</h1>
+        <p>{{ content }}</p>
+    {% endif %}
+</body>
+</html>
